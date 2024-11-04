@@ -34,18 +34,18 @@ pub fn logger(level: &str, location: &str, message: &str) {
     match level {
         "fatal" => {
             if access <= 6 {
-                eprintln!("{}", format!("[{}] [FATAL] [{}]: {}",ts, location, message));
+                eprintln!("{}", format!("[{}] [ FATAL ] [{}]: {}",ts, location, message));
                 process::exit(1);
             }
         }
         "panic" => {
             if access >= 1 && access <= 6  {
-                panic!("{}", format!("[{}] [PANIC] [{}]: {}",ts, location, message));
+                panic!("{}", format!("[{}] [ PANIC ] [{}]: {}",ts, location, message));
             }
         }
         "error" => {
             if access >= 2 && access <= 6 {
-                eprintln!("{}", format!("[{}] [ERROR] [{}]: {}",ts, location, message));
+                eprintln!("{}", format!("[{}] [ ERROR ] [{}]: {}",ts, location, message));
             }
         }
         "warning" => {
@@ -55,17 +55,17 @@ pub fn logger(level: &str, location: &str, message: &str) {
         }
         "info" => {
             if   access >= 4 && access <= 6 {
-                println!("{}", format!("[{}] [INFO] [{}]: {}",ts, location, message));
+                println!("{}", format!("[{}] [  INFO ] [{}]: {}",ts, location, message));
             }
         }
         "debug" => {
             if  access >= 5 && access <= 6{
-                println!("{}", format!("[{}] [DEBUG] [{}]: {}",ts, location, message));
+                println!("{}", format!("[{}] [ DEBUG ] [{}]: {}",ts, location, message));
             }
         }
         "trace" => {
             if access == 6 {
-                println!("{}", format!("[{}] [TRACE] [{}]: {}",ts, location, message));
+                println!("{}", format!("[{}] [ TRACE ] [{}]: {}",ts, location, message));
             }
         }
         _ => println!("{}", format!("[{}] [UNKNOWN] [{}]: {}",ts, location, message)),
